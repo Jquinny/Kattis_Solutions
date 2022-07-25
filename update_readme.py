@@ -4,10 +4,9 @@ TODO: More in depth description
 """
 
 import json
-from glob import glob
 from pathlib import Path
 import sys
-from urllib.parse import quote
+from urllib.parse import quote # not sure why this wasn't working (%3A was messing stuff up in repo url)
 
 ROOT = Path(__file__).parent
 
@@ -36,14 +35,8 @@ def create_row(info, path, repo): # need to fix this shit up
         source_file = [src_path.name for src_path in lang_path.iterdir()][0] # should only ever have one source file in these directories
         git_paths[lang_path.name] += '/' + source_file
 
-    # adding the source file to each of the language directories
-    # for lang_path in lang_paths:
-    #     print(lang_path)
-    #     # source_file = [src_path.name for src_path in path.iterdir()][0]  # should only be one file in the language directories
-    #     lang_path = repo + '/' + lang_path + '/' + source_file
-
-    # urlifying the language paths and putting them into a string
-    lang_urls = ','.join([f"[{lang}]({quote(str(url))})" for lang, url in sorted(git_paths.items())]) # not sure if I can sort this
+    # creating the rest of the readme row
+    lang_urls = ','.join([f"[{lang}]({url})" for lang, url in sorted(git_paths.items())]) # need to figure out why quote(url) was not working
     row = f"| {title_url} | {lang_urls} |\n"
 
     return row
@@ -66,7 +59,7 @@ def create_readme(repo):
     header = "".join(["# Kattis Solutions\n",
             "Solutions to the [Kattis archives](https://open.kattis.com/).\n",
             "They may not be the most elegant, but they've gotten the green checkmark on kattis and that's what were here for anyways, right?\n",
-            "## Problems\n", "| Problem | Languages |\n", "| - | - |\n"])
+            "## Problems\n", "| Problem | Solutions |\n", "| - | - |\n"])
 
     # open the readme file for writing and add all rows
     with open(ROOT.joinpath("README.md"), 'w', encoding="utf-8") as f:
@@ -77,9 +70,9 @@ def create_readme(repo):
 def main(args):
     """ TODO """
 
-    repo = args[1] if len(args) == 2 else "https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/" # url for the repo on github (necessary for readme)
-    print("Updating README ...")
-    create_readme(repo)
+    repo = args[1] if len(args) == 2 else "https://github.com/Jquinny/Kattis_Solutions" # url for the repo on github (necessary for readme)
+    create_readme(repo.rstrip('/') + "/tree/main/problems/")
+    print("README is updated.")
 
 
 if __name__ == "__main__":
