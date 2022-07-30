@@ -7,7 +7,7 @@ They may not be the most elegant, but they've gotten the green checkmark on katt
 | [3D Printed Statues](https://open.kattis.com/problems/3dprinter) | [C++](https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/3D_Printed_Statues/C++/main.cpp) |
 | [ABC](https://open.kattis.com/problems/abc) | [C++](https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/ABC/C++/main.cpp) |
 | [ACM Contest Scoring](https://open.kattis.com/problems/acm) | [C++](https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/ACM/C++/main.cpp) |
-| [Amalgamated Artichokes](https://open.kattis.com/problems/artichoke) | [C++](https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/Amalgamated_Artichokes/C++/main.cpp) |
+| [Amalgamated Artichokes](https://open.kattis.com/problems/artichoke) | [c++](https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/Amalgamated_Artichokes/c++/main.cpp) |
 | [Army Strength (Hard)](https://open.kattis.com/problems/armystrengthhard) | [C++](https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/Army_Strength_Hard/C++/main.cpp) |
 | [Combination Lock](https://open.kattis.com/problems/combinationlock) | [C++](https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/Combination_Lock/C++/main.cpp) |
 | [Compound Words](https://open.kattis.com/problems/compoundwords) | [C++](https://github.com/Jquinny/Kattis_Solutions/tree/main/problems/Compound_Words/C++/main.cpp) |
