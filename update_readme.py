@@ -1,6 +1,7 @@
-""" Script for updating the readme with any new problems that I solved.
+""" Script for updating the readme with any new problems that I solve.
 
-TODO: More in depth description
+BUGS:
+    1. Need to figure out why quote wasn't working properly when making the url's
 """
 
 import json
@@ -36,7 +37,7 @@ def create_row(info, path, repo): # need to fix this shit up
         git_paths[lang_path.name] += '/' + source_file
 
     # creating the rest of the readme row
-    lang_urls = ','.join([f"[{lang}]({url})" for lang, url in sorted(git_paths.items())]) # need to figure out why quote(url) was not working
+    lang_urls = ','.join([f"[{lang.capitalize()}]({url})" for lang, url in sorted(git_paths.items())]) # need to figure out why quote(url) was not working
     row = f"| {title_url} | {lang_urls} |\n"
 
     return row
@@ -59,7 +60,7 @@ def create_readme(repo):
     header = "".join(["# Kattis Solutions\n",
             "Solutions to the [Kattis archives](https://open.kattis.com/).\n",
             "They may not be the most elegant, but they've gotten the green checkmark on kattis and that's what were here for anyways, right?\n",
-            "## Problems\n", "| Problem | Solutions |\n", "| - | - |\n"])
+            "## Problems\n", "| Problem | Solution |\n", "| - | - |\n"])
 
     # open the readme file for writing and add all rows
     with open(ROOT.joinpath("README.md"), 'w', encoding="utf-8") as f:
@@ -71,7 +72,7 @@ def main(args):
     """ TODO """
 
     repo = args[1] if len(args) == 2 else "https://github.com/Jquinny/Kattis_Solutions" # url for the repo on github (necessary for readme)
-    create_readme(repo.rstrip('/') + "/tree/main/problems/")
+    create_readme(repo.rstrip('/') + "/tree/main/problems/") # don't need the rstrip i dont think, so can probably delete it
     print("README is updated.")
 
 
